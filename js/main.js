@@ -1,5 +1,5 @@
 // Teatro Politeama · elpoliteama.com
-import { initKit } from '../kit/kit.js?v=1';
+import { initKit } from '../kit/kit.js?v=2';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -10,17 +10,23 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const espera = (ms) => new Promise((r) => setTimeout(r, ms));
 const guardar = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* modo privado */ } };
 
-/* ---------------- bombitas ---------------- */
+/* ---------------- bombitas (solo la marquesina de la intro) ---------------- */
 function bombitas(el, n) {
   el.innerHTML = Array.from({ length: n }, (_, i) => `<i style="--i:${i}"></i>`).join('');
   el.style.setProperty('--n', n);
 }
 $$('[data-luces]').forEach((el) => bombitas(el, Number(el.dataset.luces)));
-$$('[data-candilejas]').forEach((el) => bombitas(el, celu() ? 7 : Number(el.dataset.candilejas)));
-$$('[data-luces-linea]').forEach((el) => bombitas(el, Number(el.dataset.lucesLinea)));
-const bamb = $('[data-luces-bambalina]');
-const pintarBambalina = () => bombitas(bamb, Math.max(10, Math.round(innerWidth / 46)));
-pintarBambalina();
+
+/* ---------------- medidas del escenario: ancho del telón recogido y tamaño de la sala ---------------- */
+const escenarioEl = $('.escenario');
+function medir() {
+  const w = escenarioEl.clientWidth, h = escenarioEl.clientHeight;
+  const px = w < 768 ? 26 : w < 1100 ? 90 : 150;                 // el telón recogido mide siempre lo mismo
+  escenarioEl.style.setProperty('--abre', (px / (w * .505)).toFixed(4));
+  escenarioEl.style.setProperty('--ew', `${w}px`);
+  escenarioEl.style.setProperty('--eh', `${h}px`);
+}
+medir();
 
 /* ---------------- intro: la marquesina se prende y se abre el telón ---------------- */
 const escenario = $('.escenario');
@@ -48,12 +54,18 @@ $('[data-saltar-intro]')?.addEventListener('click', terminarIntro);
 addEventListener('keydown', (e) => { if (e.key === 'Escape' && !introTerminada) terminarIntro(); });
 intro();
 
-/* ---------------- el seguidor de luz ---------------- */
+/* ---------------- el seguidor de luz: descubre la sala en penumbra ---------------- */
 (function seguidor() {
-  const luz = $('.escenario__seguidor');
-  const sombra = $('.escena__sombra');
-  if (!luz || quieto) return;
-  let tx = innerWidth * .5, ty = innerHeight * .42, x = tx, y = ty, visible = true, mouse = false, t0 = performance.now(), quietoDesde = 0;
+  const foco = $('.foco');
+  if (!foco) return;
+  const poner = (x, y) => { foco.style.setProperty('--sx', `${x.toFixed(1)}px`); foco.style.setProperty('--sy', `${y.toFixed(1)}px`); };
+  if (quieto) { poner(escenario.clientWidth / 2, escenario.clientHeight * .45); return; }
+  if (matchMedia('(hover: none)').matches) {                     // celu/tablet: animación del navegador, liviana
+    escenario.classList.add('foco-auto');
+    new IntersectionObserver(([e]) => escenario.classList.toggle('pausado', !e.isIntersecting)).observe(escenario);
+    return;
+  }
+  let tx = escenario.clientWidth * .5, ty = escenario.clientHeight * .45, x = tx, y = ty, visible = true, mouse = false, t0 = performance.now(), quietoDesde = 0;
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(escenario);
   escenario.addEventListener('pointermove', (e) => {
     if (e.pointerType !== 'mouse') return;
@@ -65,19 +77,13 @@ intro();
     requestAnimationFrame(cuadro);
     if (!visible) return;
     const w = escenario.clientWidth, h = escenario.clientHeight;
-    if (!mouse || now - quietoDesde > 6000) {                    // sin mouse (celu): la luz se pasea sola, despacio
+    if (!mouse || now - quietoDesde > 6000) {                    // sin mouse (celu): la luz recorre la sala sola, despacio
       const t = (now - t0) / 1000;
-      tx = w * (.5 + Math.sin(t * .42) * (celu() ? .26 : .3));
-      ty = h * (.42 + Math.sin(t * .31 + 1.2) * .1);
+      tx = w * (.5 + Math.sin(t * .32) * (celu() ? .3 : .28));
+      ty = h * (.5 + Math.sin(t * .23 + 1.2) * .16);
     }
-    x += (tx - x) * .06; y += (ty - y) * .06;
-    luz.style.setProperty('--sx', `${x.toFixed(1)}px`);
-    luz.style.setProperty('--sy', `${y.toFixed(1)}px`);
-    if (sombra) {                                                // la sombra del título se corre al revés de la luz
-      const dx = ((w / 2 - x) / w) * 46, dy = 10 + ((h * .42 - y) / h) * 26;
-      sombra.style.setProperty('--dx', `${dx.toFixed(1)}px`);
-      sombra.style.setProperty('--dy', `${dy.toFixed(1)}px`);
-    }
+    x += (tx - x) * .05; y += (ty - y) * .05;
+    poner(x, y);
   }
   requestAnimationFrame(cuadro);
 })();
@@ -245,9 +251,8 @@ function pintarDestacada() {
   if (!p) { b.hidden = true; return; }
   b.hidden = false; b.dataset.ficha = p.id;
   const img = $('.en-escena__img', b); img.src = ctxKit ? ctxKit.asset(chica(p.foto)) : chica(p.foto); img.alt = '';
-  $('.en-escena__kicker', b).textContent = p.destacada ? 'Destacada' : 'En cartel';
+  $('.en-escena__kicker', b).textContent = p.funciones || (p.destacada ? 'Destacada' : 'En cartel');
   $('.en-escena__titulo', b).textContent = p.nombre;
-  $('.en-escena__funciones', b).textContent = p.funciones || SIN_FUNCIONES;
   b.setAttribute('aria-label', `${p.nombre}: ver la obra y comprar entradas`);
   requestAnimationFrame(revisarTicket);
 }
@@ -304,7 +309,7 @@ function revisarTicket() {
 
 /* ---------------- recalcular al girar o cambiar el tamaño ---------------- */
 let rz;
-addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { pintarBambalina(); revisarTicket(); }, 200); }, { passive: true });
+addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { medir(); revisarTicket(); }, 150); }, { passive: true });
 btnLetra.addEventListener('click', () => requestAnimationFrame(revisarTicket));
 
 /* ---------------- arranca el kit ---------------- */

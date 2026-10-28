@@ -10,14 +10,14 @@
 <meta property="og:url" content="https://elpoliteama.vercel.app/">
 <meta property="og:title" content="Teatro Politeama · Cartelera y entradas">
 <meta property="og:description" content="Comedia, drama y musicales en Paraná 353, a pasos de Corrientes. Mirá qué hay en cartel.">
-<meta property="og:image" content="https://elpoliteama.vercel.app/img/og.jpg?v=1">
+<meta property="og:image" content="https://elpoliteama.vercel.app/img/og.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:alt" content="Teatro Politeama: telón rojo, la sala y el logo. Bienvenidos al Politeama.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://elpoliteama.vercel.app/img/og.jpg?v=1">
-<meta name="theme-color" content="#0F0B0A">
+<meta name="twitter:image" content="https://elpoliteama.vercel.app/img/og.jpg?v=2">
+<meta name="theme-color" content="#0B0908">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <script>
@@ -31,9 +31,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@500;600;700&amp;display=swap">
 <link rel="stylesheet" href="kit/kit.css?v=1">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -86,7 +86,7 @@
     <a href="#club" data-cerrar-menu>Club de Amigos</a>
     <a href="#contacto" data-cerrar-menu>Contacto</a>
   </nav>
-  <button type="button" class="entrada" data-elegir data-cerrar-menu><span class="entrada__a">Comprar entradas</span><span class="entrada__b" aria-hidden="true"><svg><use href="#logo-p"/></svg></span></button>
+  <button type="button" class="entrada" data-elegir data-cerrar-menu><span class="entrada__a">Comprar entradas</span></button>
   <div class="menu__redes">
     <a href="https://instagram.com/elpoliteama" target="_blank" rel="noopener">Instagram</a>
     <a href="https://facebook.com/PoliteamaTeatro" target="_blank" rel="noopener">Facebook</a>
@@ -99,38 +99,34 @@
 
 <!-- HERO: el escenario -->
 <section class="escenario" id="inicio" aria-label="Bienvenida">
-  <div class="escenario__fondo" aria-hidden="true"></div>
-  <div class="escenario__seguidor" aria-hidden="true"></div>
-  <div class="escenario__piso" aria-hidden="true"><div class="escenario__tablas"></div><div class="escenario__candilejas" data-candilejas="14"></div></div>
+  <div class="escenario__sala" aria-hidden="true"><img src="img/sala-oscura.webp" alt="" width="1186" height="643" fetchpriority="high" decoding="async"></div>
+  <div class="foco" aria-hidden="true"><div class="foco__img"><img src="img/sala-luz.webp" alt="" width="1186" height="643" decoding="async"></div></div>
+  <div class="escenario__velo" aria-hidden="true"></div>
 
   <div class="escena">
     <p class="escena__kicker aparece" style="--d:0"><span class="solo-desk">Teatro Politeama · </span>Paraná 353 · Buenos Aires</p>
-    <div class="escena__titulo-caja">
-      <h1 class="escena__titulo"><span class="linea"><span>Bienvenidos</span></span><span class="linea"><span>al Politeama.</span></span></h1>
-      <p class="escena__sombra" aria-hidden="true"><span>Bienvenidos</span><span>al Politeama.</span></p>
-    </div>
+    <h1 class="escena__titulo"><span class="linea"><span>Bienvenidos</span></span><span class="linea"><span><em>al Politeama</em></span></span></h1>
+    <div class="ornamento ornamento--oro aparece" style="--d:2" aria-hidden="true"><span></span><svg><use href="#logo-p"/></svg><span></span></div>
     <p class="escena__bajada aparece" style="--d:3">Comedia, drama y musicales en una sala de 705 butacas, a pasos de Avenida Corrientes.</p>
     <div class="escena__botones aparece" style="--d:4">
-      <button type="button" class="entrada" data-elegir><span class="entrada__a">Comprar entradas</span><span class="entrada__b" aria-hidden="true"><svg><use href="#logo-p"/></svg></span></button>
-      <a class="btn-luz" href="#cartelera">Ver la cartelera</a>
+      <button type="button" class="entrada" data-elegir><span class="entrada__a">Comprar entradas</span></button>
+      <a class="btn-link" href="#cartelera">Ver la cartelera</a>
     </div>
   </div>
 
   <button type="button" class="en-escena aparece" style="--d:6" data-destacada hidden>
-    <img class="en-escena__img" alt="" width="96" height="96" decoding="async">
+    <img class="en-escena__img" alt="" width="64" height="64" decoding="async">
     <span class="en-escena__txt">
       <span class="en-escena__kicker">Destacada</span>
       <span class="en-escena__titulo"></span>
-      <span class="en-escena__funciones"></span>
     </span>
-    <span class="en-escena__troquel" aria-hidden="true">Ver</span>
+    <span class="en-escena__ver" aria-hidden="true">Ver →</span>
   </button>
 
-  <div class="bambalina" aria-hidden="true"><div class="bambalina__luces" data-luces-bambalina></div></div>
   <div class="telon telon--izq" aria-hidden="true"></div>
   <div class="telon telon--der" aria-hidden="true"></div>
-  <span class="lazo lazo--izq" aria-hidden="true"></span>
-  <span class="lazo lazo--der" aria-hidden="true"></span>
+  <span class="filete filete--izq" aria-hidden="true"></span>
+  <span class="filete filete--der" aria-hidden="true"></span>
 </section>
 
 <!-- CARTELERA -->
@@ -140,7 +136,7 @@
       <div>
         <p class="kicker revelar">En cartel</p>
         <h2 class="titulo-seccion revelar" id="t-cartelera"><span class="linea"><span>Cartelera</span></span></h2>
-        <div class="luces-linea revelar" data-luces-linea="10" aria-hidden="true"></div>
+        <div class="ornamento revelar" aria-hidden="true"><span></span><svg><use href="#logo-p"/></svg><span></span></div>
       </div>
       <p class="seccion__intro revelar">Entradas por <b>Plateanet</b> o en la boletería del teatro, Paraná 353. <a href="#contacto">Ver horarios de boletería</a></p>
     </header>
@@ -168,7 +164,7 @@
     <div class="proyecto__texto">
       <p class="kicker revelar">El Politeama</p>
       <h2 class="titulo-seccion revelar" id="t-proyecto"><span class="linea"><span>Un proyecto</span></span><span class="linea"><span>hecho realidad</span></span></h2>
-      <div class="luces-linea revelar" data-luces-linea="10" aria-hidden="true"></div>
+      <div class="ornamento revelar" aria-hidden="true"><span></span><svg><use href="#logo-p"/></svg><span></span></div>
       <p class="lectura revelar">100 Bares, la productora de Juan José Campanella, empezó a gestar la idea de construir un teatro en el año 2015. En el 2022 abre las puertas el Teatro Politeama, un espacio de 705 butacas y el diseño más moderno para albergar los espectáculos más imponentes.</p>
       <p class="lectura revelar">Teatro, comedia musical, conciertos, congresos, eventos, y todo lo que podamos soñar, dotarán de vida a un teatro equipado con la última tecnología y confort para que la experiencia sensorial sea inolvidable.</p>
     </div>
@@ -242,7 +238,7 @@
       <div>
         <p class="kicker revelar">Contacto</p>
         <h2 class="titulo-seccion revelar" id="t-contacto"><span class="linea"><span>Cómo llegar</span></span></h2>
-        <div class="luces-linea revelar" data-luces-linea="10" aria-hidden="true"></div>
+        <div class="ornamento revelar" aria-hidden="true"><span></span><svg><use href="#logo-p"/></svg><span></span></div>
       </div>
     </header>
     <div class="contacto">
@@ -274,7 +270,7 @@
     </div>
     <figure class="mapa revelar-foto" aria-label="Mapa ilustrado: el teatro está en Paraná 353, entre Sarmiento y Avenida Corrientes">
       <svg viewBox="0 0 1200 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <rect width="1200" height="380" fill="#EBE1CF"/>
+        <rect width="1200" height="380" fill="#E9E0D0"/>
         <g fill="#F7F1E6">
           <rect x="0" y="96" width="1200" height="46"/>
           <rect x="0" y="292" width="1200" height="32"/>
@@ -286,7 +282,7 @@
           <text x="40" y="125">AV. CORRIENTES</text>
           <text x="40" y="314">SARMIENTO</text>
           <text x="270" y="200" transform="rotate(90 270 200)">URUGUAY</text>
-          <text x="582" y="190" transform="rotate(90 582 190)">PARANÁ</text>
+          <text x="582" y="8" transform="rotate(90 582 8)">PARANÁ</text>
           <text x="900" y="200" transform="rotate(90 900 200)">MONTEVIDEO</text>
         </g>
         <g transform="translate(265 119)"><circle r="17" fill="#1C1715"/><text y="6" text-anchor="middle" fill="#F7F1E6" font-family="Montserrat, sans-serif" font-weight="700" font-size="16">B</text></g>
@@ -377,6 +373,6 @@
   </div>
 </div>
 
-<script type="module" src="js/main.js?v=1"></script>
+<script type="module" src="js/main.js?v=2"></script>
 </body>
 </html>

@@ -8,27 +8,41 @@
   "whatsapp": "",
   "instagram": "elpoliteama",
   "prefijoPedido": "PO",
-  "supabase": { "url": "", "anonKey": "" },
+  "supabase": {
+    "url": "",
+    "anonKey": ""
+  },
   "marca": {
     "logo": "img/logo-p.svg",
     "logoPanel": "img/logo-p-claro.svg",
     "favicon": "img/favicon.png",
     "colores": {
-      "fondo": "#F7F1E6",
+      "fondo": "#F5EFE4",
       "superficie": "#FFFFFF",
       "texto": "#1C1715",
-      "primario": "#B3080C",
-      "acento": "#FFD27A",
-      "borde": "#DCCFBC"
+      "primario": "#6E1420",
+      "acento": "#C9A45C",
+      "borde": "#DDD2C0"
     },
     "fuentes": {
-      "titulos": "'DM Serif Display', Georgia, serif",
+      "titulos": "'Bodoni Moda', Georgia, serif",
       "texto": "'Atkinson Hyperlegible', system-ui, sans-serif",
-      "googleFonts": "DM+Serif+Display&family=Atkinson+Hyperlegible:wght@400;700&family=Montserrat:wght@600;700"
+      "googleFonts": "Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Atkinson+Hyperlegible:wght@400;700&family=Montserrat:wght@500;600"
     },
-    "estilo": { "forma": "redondeada", "radio": "8px", "sombra": "suave", "borde": "1.5px", "mayusculas": false }
+    "estilo": {
+      "forma": "recta",
+      "sombra": "suave",
+      "borde": "1px",
+      "mayusculas": false
+    }
   },
-  "modulos": { "carta": true, "carrito": false, "reservas": false, "admin": true, "cartaQR": false },
+  "modulos": {
+    "carta": true,
+    "carrito": false,
+    "reservas": false,
+    "admin": true,
+    "cartaQR": false
+  },
   "textos": {
     "carta": "Cartelera",
     "secciones": "Secciones",
@@ -53,13 +67,48 @@
     "fotoAgregar": "+ Afiche"
   },
   "horarios": {
-    "lun": [["11:00", "19:00"]],
-    "mar": [["12:00", "20:00"]],
-    "mie": [["10:00", "21:00"]],
-    "jue": [["10:00", "21:00"]],
-    "vie": [["10:00", "21:00"]],
-    "sab": [["10:00", "21:00"]],
-    "dom": [["10:00", "21:00"]]
+    "lun": [
+      [
+        "11:00",
+        "19:00"
+      ]
+    ],
+    "mar": [
+      [
+        "12:00",
+        "20:00"
+      ]
+    ],
+    "mie": [
+      [
+        "10:00",
+        "21:00"
+      ]
+    ],
+    "jue": [
+      [
+        "10:00",
+        "21:00"
+      ]
+    ],
+    "vie": [
+      [
+        "10:00",
+        "21:00"
+      ]
+    ],
+    "sab": [
+      [
+        "10:00",
+        "21:00"
+      ]
+    ],
+    "dom": [
+      [
+        "10:00",
+        "21:00"
+      ]
+    ]
   },
   "carta": {
     "sinPrecio": true,
@@ -67,19 +116,52 @@
     "descripcionMax": 1200,
     "campoFila": "funciones",
     "campos": [
-      { "id": "genero", "label": "Género (ej. Comedia romántica)", "placeholder": "Comedia romántica" },
-      { "id": "funciones", "label": "Días y horarios", "placeholder": "Viernes y sábados 20 h" },
-      { "id": "duracion", "label": "Duración", "placeholder": "90 minutos" },
-      { "id": "link", "label": "Link de compra (Plateanet)", "tipo": "url", "placeholder": "https://www.plateanet.com/obra/…" },
-      { "id": "destacada", "label": "Destacada en la portada", "tipo": "check", "ayuda": "Aparece en la entrada de la portada. Si marcás varias, se usa la primera." }
+      {
+        "id": "genero",
+        "label": "Género (ej. Comedia romántica)",
+        "placeholder": "Comedia romántica"
+      },
+      {
+        "id": "funciones",
+        "label": "Días y horarios",
+        "placeholder": "Viernes y sábados 20 h"
+      },
+      {
+        "id": "duracion",
+        "label": "Duración",
+        "placeholder": "90 minutos"
+      },
+      {
+        "id": "link",
+        "label": "Link de compra (Plateanet)",
+        "tipo": "url",
+        "placeholder": "https://www.plateanet.com/obra/…"
+      },
+      {
+        "id": "destacada",
+        "label": "Destacada en la portada",
+        "tipo": "check",
+        "ayuda": "Aparece en la entrada de la portada. Si marcás varias, se usa la primera."
+      }
     ],
     "categorias": [
-      { "id": "en-cartel", "nombre": "En cartel", "orden": 1 },
-      { "id": "proximamente", "nombre": "Próximamente", "orden": 2 }
+      {
+        "id": "en-cartel",
+        "nombre": "En cartel",
+        "orden": 1
+      },
+      {
+        "id": "proximamente",
+        "nombre": "Próximamente",
+        "orden": 2
+      }
     ],
     "productos": [
       {
-        "id": "empieza-con-d", "categoria": "en-cartel", "orden": 1, "nombre": "Empieza con D, siete letras",
+        "id": "empieza-con-d",
+        "categoria": "en-cartel",
+        "orden": 1,
+        "nombre": "Empieza con D, siete letras",
         "genero": "Comedia romántica",
         "funciones": "Viernes, sábados y domingos · últimas funciones",
         "duracion": "",
@@ -89,7 +171,10 @@
         "descripcion": "En la sala de espera de un consultorio dental, Miranda, una carismática profesora de yoga en sus 30, conoce a Luis, un médico retirado y viudo en sus 60. Entre choques, ironías, risas y momentos profundamente humanos, nace un vínculo inesperado que pondrá a prueba sus certezas. “Empieza con D, Siete Letras” es una comedia romántica sobre el amor, la vulnerabilidad y la posibilidad de empezar de nuevo, porque la vida siempre puede sorprendernos con un nuevo capítulo."
       },
       {
-        "id": "la-voz-humana", "categoria": "en-cartel", "orden": 2, "nombre": "La voz humana",
+        "id": "la-voz-humana",
+        "categoria": "en-cartel",
+        "orden": 2,
+        "nombre": "La voz humana",
         "genero": "Unipersonal · Jean Cocteau",
         "funciones": "Estreno 14 de noviembre · únicas 4 funciones",
         "duracion": "",
@@ -99,7 +184,10 @@
         "descripcion": "Una mujer. Un teléfono. Y una conversación que lo cambia todo. Entre verdades, mentiras, recuerdos y silencios, una mujer intenta entender qué queda de un amor cuando las palabras ya no alcanzan. Con la interpretación única y la inconfundible gestualidad de Humberto Tortonese, La voz humana vuelve a escena con humor, emoción y toda la vigencia de un clásico que sigue hablando de nosotros."
       },
       {
-        "id": "la-mejor-de-mis-bodas", "categoria": "en-cartel", "orden": 3, "nombre": "La mejor de mis bodas",
+        "id": "la-mejor-de-mis-bodas",
+        "categoria": "en-cartel",
+        "orden": 3,
+        "nombre": "La mejor de mis bodas",
         "genero": "Comedia musical",
         "funciones": "",
         "duracion": "",
@@ -109,7 +197,10 @@
         "descripcion": "Llega por primera vez a la Argentina el musical basado en la exitosa película The Wedding Singer. En plenos años 80, Adrián Weiss, un popular cantante de bodas, queda destrozado cuando su novia lo abandona en el altar. En el salón donde trabaja conoce a Ella Miller, una moza dulce que sueña con casarse con su ambicioso novio. Entre humor, música, amistad y romance, ambos descubrirán si el amor puede vencer al miedo, los intereses y los errores del pasado. Con músicos en vivo y vibrantes coreografías."
       },
       {
-        "id": "medida-por-medida", "categoria": "en-cartel", "orden": 4, "nombre": "Medida por medida",
+        "id": "medida-por-medida",
+        "categoria": "en-cartel",
+        "orden": 4,
+        "nombre": "Medida por medida",
         "genero": "Comedia · Shakespeare · La culpa es tuya",
         "funciones": "Viernes 20 h",
         "duracion": "",
@@ -119,7 +210,10 @@
         "descripcion": "Una comedia llena de humor, gags físicos y poesía, que nos acerca a Shakespeare desde una perspectiva lúdica. La obra explora las contradicciones humanas, abordando temas actuales como la justicia, el vicio, la corrupción y el abuso de poder, con la mujer en un rol central. A través del humor, se cuestionan la ley, la ética y la religión, invitando a la reflexión sin emitir juicios morales. Una mirada aguda y divertida sobre la naturaleza humana, donde la nobleza y la bajeza se entrelazan de manera inevitable."
       },
       {
-        "id": "los-ojos-del-perro-siberiano", "categoria": "en-cartel", "orden": 5, "nombre": "Los ojos del perro siberiano",
+        "id": "los-ojos-del-perro-siberiano",
+        "categoria": "en-cartel",
+        "orden": 5,
+        "nombre": "Los ojos del perro siberiano",
         "genero": "Drama",
         "funciones": "",
         "duracion": "",
@@ -129,7 +223,10 @@
         "descripcion": "Un joven regresa a los recuerdos de su infancia, a comienzos de los años noventa, para reconstruir el vínculo con su hermano mayor, Ezequiel. En una época atravesada por el miedo, la desinformación y los prejuicios en torno al VIH, revive los silencios, las heridas y los secretos de una familia que decidió expulsarlo por completo. En ese viaje hacia la verdad, Sacha, el entrañable perro siberiano de Ezequiel, acompaña el doloroso reencuentro de los hermanos y les permite volver a mirarse de igual a igual."
       },
       {
-        "id": "mama-soy-un-idiota", "categoria": "en-cartel", "orden": 6, "nombre": "Mamá, soy un idiota",
+        "id": "mama-soy-un-idiota",
+        "categoria": "en-cartel",
+        "orden": 6,
+        "nombre": "Mamá, soy un idiota",
         "genero": "Ficción filosófica",
         "funciones": "",
         "duracion": "",
